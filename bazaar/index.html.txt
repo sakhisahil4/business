@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bazaar | Buy Clothes Online in Pakistan</title>
+
+  <!-- SEO -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bazaar is an online clothing store in Pakistan. Buy hoodies, t-shirts, jackets with cash on delivery.">
+  <meta name="keywords" content="online clothing store Pakistan, buy clothes online Pakistan, men fashion Pakistan, hoodies Pakistan, t shirts Pakistan">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Bazaar</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="cart.html">Cart</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h2>Premium Fashion for Pakistan</h2>
+    <p>Buy trendy men clothing online with Cash on Delivery</p>
+    <a href="shop.html" class="btn">Shop Now</a>
+  </div>
+</section>
+
+<section class="section center">
+  <h2>Why Bazaar?</h2>
+  <p>
+    ✔ Online Clothing Store Pakistan <br>
+    ✔ Cash on Delivery <br>
+    ✔ Premium Quality
+  </p>
+</section>
+
+<footer>
+  <p>© 2025 Bazaar — Online Clothing Store in Pakistan</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let products = JSON.parse(localStorage.getItem("products")) || [];
+
+/* -------- CART -------- */
+
+function addToCart(name, price) {
+  cart.push({ name, price });
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert("Product added to cart");
+}
+
+function loadCart() {
+  const cartItems = document.getElementById("cart-items");
+  const totalEl = document.getElementById("total");
+
+  cartItems.innerHTML = "";
+  let total = 0;
+
+  cart.forEach((item, i) => {
+    total += item.price;
+    cartItems.innerHTML += `
+      <div class="cart-item">
+        ${item.name} - PKR ${item.price}
+        <button onclick="removeItem(${i})">Remove</button>
+      </div>`;
+  });
+
+  totalEl.innerText = "Total: PKR " + total;
+}
+
+function removeItem(i) {
+  cart.splice(i, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  loadCart();
+}
+
+function placeOrder() {
+  alert("Order placed successfully (Cash on Delivery)");
+  localStorage.clear();
+  location.href = "index.html";
+}
+
+/* -------- AI ADMIN -------- */
+
+function aiAddProduct() {
+  const text = document.getElementById("aiInput").value.toLowerCase();
+
+  let name = text.match(/add (.+?) price/);
+  let price = text.match(/price (\d+)/);
+  let image = text.match(/image (\S+)/);
+
+  if (!name || !price) {
+    alert("Use correct format");
+    return;
+  }
+
+  products.push({
+    name: name[1],
+    price: parseInt(price[1]),
+    image: image ? image[1] : "https://via.placeholder.com/300"
+  });
+
+  localStorage.setItem("products", JSON.stringify(products));
+  document.getElementById("aiInput").value = "";
+  loadAdminProducts();
+}
+
+function loadAdminProducts() {
+  const box = document.getElementById("adminProducts");
+  if (!box) return;
+  box.innerHTML = "";
+  products.forEach(p => {
+    box.innerHTML += `<p>✔ ${p.name} - PKR ${p.price}</p>`;
+  });
+}
+
+function loadShopProducts() {
+  const box = document.getElementById("shopProducts");
+  box.innerHTML = "";
+  products.forEach(p => {
+    box.innerHTML += `
+      <div class="product">
+        <img src="${p.image}" alt="${p.name} in Pakistan">
+        <h3>${p.name}</h3>
+        <p>PKR ${p.price}</p>
+        <button onclick="addToCart('${p.name}', ${p.price})">Add to Cart</button>
+      </div>`;
+  });
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>AI Admin Panel | Bazaar</title>
+
+  <!-- SEO -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>🧠 Bazaar AI Admin</h1>
+  <nav>
+    <a href="shop.html">View Shop</a>
+  </nav>
+</header>
+
+<section class="section">
+  <h2 class="center">AI Product Manager</h2>
+
+  <p class="center">
+    Type like ChatGPT <br>
+    <small>Example: Add black hoodie price 3499 image hoodie.jpg</small>
+  </p>
+
+  <textarea id="aiInput" rows="4" style="width:100%;padding:10px;"></textarea>
+
+  <div class="center" style="margin-top:15px;">
+    <button onclick="aiAddProduct()">Generate Product</button>
+  </div>
+
+  <h3 style="margin-top:30px;">Saved Products</h3>
+  <div id="adminProducts"></div>
+</section>
+
+<script src="script.js"></script>
+<script>
+  loadAdminProducts();
+</script>
+</body>
+</html>
